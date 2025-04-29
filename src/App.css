@@ -1,9 +1,37 @@
 /* app.css */
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f9;
-  padding: 30px;
-  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  position: relative;
+  background-image: url('/public/Images/workstation.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% transparency */
+  z-index: -1; /* Keeps the overlay behind the content */
+}
+
+h1 {
+  color: white;
+  text-align: left;
+  padding: 20px;
+  border-radius: 5px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Stronger text shadow for better readability */
+  max-width: 90%;
+  margin: 0 auto;
+  z-index: 1; /* Ensure h1 is above the background overlay */
+  position: relative; /* Position relative to allow z-index */
 }
 
 .App {
@@ -18,10 +46,6 @@ body {
 
 .App:hover {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-
-h1, h2, h3 {
-  color: #333;
 }
 
 button {
@@ -58,3 +82,38 @@ li:hover {
   background-color: #f1f1f1;
 }
 
+
+/* Target only the "Add Reminder" button */
+.add-reminder-btn {
+  padding: 8px 40px; /* Adjust horizontal padding */
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.7rem; /* Smaller font size for smaller screens */
+    padding: 15px; /* Adjust padding to fit better */
+    text-align: center;
+  }
+  .App {
+    padding: 20px; /* Adjust App padding */
+    max-width: 95%; /* Adjust max-width for smaller screens */
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+  }
+  .add-reminder-btn {
+    padding: 5px 15px; /* Adjust horizontal padding */
+  }
+}
+
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.5rem; /* Smaller font size for smaller screens */
+    padding: 0; /* Adjust padding to fit better */
+  }
+  .btn {
+    font-size: 0.8rem;
+  }
+}
