@@ -1,4 +1,4 @@
-// NewReminder.tsx
+// components/NewReminder.tsx
 import  { useState } from 'react';
 import { JSX } from 'react/jsx-runtime';
 

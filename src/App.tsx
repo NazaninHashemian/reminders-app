@@ -4,7 +4,7 @@ import './App.css';
 import Reminder from './models/reminder';
 import ReminderList from './components/ReminderList';
 import reminderService from './services/reminder';
-import NewReminder from './components/newReminder';
+import NewReminder from './components/NewReminder';
 
 function App() {
   const [reminders, setReminders] = useState<Reminder[]>([]);
