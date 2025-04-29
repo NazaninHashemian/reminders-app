@@ -7,20 +7,26 @@ import reminderService from './services/reminder';
 import NewReminder from './components/NewReminder';
 
 function App() {
-  const [reminders, setReminders] = useState<Reminder[]>([]);
+  const [reminders, setReminders] = useState<Reminder[]>([
+
+  ]);
 
   useEffect(() => {
     loadReminders();
   }, []);
 
   const loadReminders = async () => {
+    console.log("Loading reminders...");  // Debugging
     const reminders = await reminderService.getReminders();
     setReminders(reminders);
   }
 
-  const removeReminder = (id: number) => {
-    const newReminders = reminders.filter(reminder => reminder.id !== id);
+  // const removeReminder = (id: number) => {
+    const removeReminder = async (id: string) => {
+    // const newReminders = reminders.filter(reminder => reminder.id !== id);
+    const newReminders = reminders.filter(reminder => reminder._id !== id);
     setReminders(newReminders);
+    await reminderService.removeReminder(id);
   }
 
   const addReminder = async(title: string) => {
