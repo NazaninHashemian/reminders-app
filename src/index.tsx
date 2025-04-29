@@ -10,8 +10,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <div style={{ textAlign: 'center', marginTop: '20px' }}>
+    <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>Stay On Track: Reminder App</h1>
+  </div>
+  <App />
+</React.StrictMode>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

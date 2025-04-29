@@ -18,7 +18,16 @@ function NewReminder({onAddReminder}: NewReminderProps): JSX.Element {
     return (
         <form onSubmit={submitForm}>
             <label htmlFor="title"></label>
-            <input value={title} onChange={(e) => setTitle(e.target.value)} id="title" type="text" className="form-control" />
+            
+            <input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                id="title"
+                type="text"
+                className="form-control"
+                placeholder="Enter your reminder here..."
+            />
+
             <button type="submit" className="btn btn-primary my-3 rounded-pill">Add Reminder</button>
         </form>
     );

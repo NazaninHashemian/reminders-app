@@ -36,7 +36,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Stay On Track: Reminder App</h1>
       <NewReminder onAddReminder={addReminder}/>
       <ReminderList items={reminders} onRemoveReminder={removeReminder}/>
     </div>
