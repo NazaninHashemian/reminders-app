@@ -1,16 +1,18 @@
 {
   "files": {
     "main.css": "/reminders-app/static/css/main.e0df7cb7.css",
-    "main.js": "/reminders-app/static/js/main.d1925718.js",
+    "main.js": "/reminders-app/static/js/main.504f48da.js",
+    "static/js/952.daebc7d6.chunk.js": "/reminders-app/static/js/952.daebc7d6.chunk.js",
     "static/js/453.cf72e860.chunk.js": "/reminders-app/static/js/453.cf72e860.chunk.js",
     "static/media/workstation.jpg": "/reminders-app/static/media/workstation.685296bfafdb21fc8cb9.jpg",
     "index.html": "/reminders-app/index.html",
     "main.e0df7cb7.css.map": "/reminders-app/static/css/main.e0df7cb7.css.map",
-    "main.d1925718.js.map": "/reminders-app/static/js/main.d1925718.js.map",
+    "main.504f48da.js.map": "/reminders-app/static/js/main.504f48da.js.map",
+    "952.daebc7d6.chunk.js.map": "/reminders-app/static/js/952.daebc7d6.chunk.js.map",
     "453.cf72e860.chunk.js.map": "/reminders-app/static/js/453.cf72e860.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e0df7cb7.css",
-    "static/js/main.d1925718.js"
+    "static/js/main.504f48da.js"
   ]
 }
