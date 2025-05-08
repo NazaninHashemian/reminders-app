@@ -4,7 +4,8 @@ import './App.css';
 import Reminder from './models/reminder';
 import ReminderList from './components/ReminderList';
 import reminderService from './services/reminder';
-import NewReminder from './components/NewReminder';
+import NewReminder from './components/newReminder';
+
 
 function App() {
   const [reminders, setReminders] = useState<Reminder[]>([
@@ -23,15 +24,19 @@ function App() {
 
   // const removeReminder = (id: number) => {
     const removeReminder = async (id: string) => {
-    // const newReminders = reminders.filter(reminder => reminder.id !== id);
-    const newReminders = reminders.filter(reminder => reminder._id !== id);
+    const newReminders = reminders.filter(reminder => reminder.id !== id);
+    // const newReminders = reminders.filter(reminder => reminder._id !== id);
     setReminders(newReminders);
     await reminderService.removeReminder(id);
   }
 
   const addReminder = async(title: string) => {
     const newReminder = await reminderService.addReminder(title);
-    setReminders([newReminder, ...reminders]);
+    if (newReminder) {
+      setReminders([newReminder, ...reminders]);
+    } else {
+      console.error('Failed to add reminder');
+    }
   }
 
   return (

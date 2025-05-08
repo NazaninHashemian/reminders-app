@@ -1,37 +1,53 @@
-// services/reminder.ts
-import axios from "axios";
-import Reminder from "../models/reminder";
+import { createClient } from '@supabase/supabase-js'
+import Reminder from '../models/reminder'
+
+// Access the Supabase URL and Key from environment variables
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL || ''
+const supabaseKey = process.env.REACT_APP_SUPABASE_KEY || ''
+
+// Initialize the Supabase client
+const supabase = createClient(supabaseUrl, supabaseKey)
 
 class ReminderService {
-    http = axios.create({
-        // baseURL: 'https://jsonplaceholder.typicode.com/'
-        baseURL: "https://crudcrud.com/api/9abc8d84835f4e298dec4b72d6021298/reminders"
-       
-    });
+  async getReminders(): Promise<Reminder[]> {
+    const { data, error } = await supabase
+      .from('reminders')
+      .select('*')
+      .order('created_at', { ascending: false })
 
-    async getReminders() {
-        try {
-          const response = await this.http.get<Reminder[]>('');
-          console.log("API Response:", response.data);  // Log the API response
-          return response.data;
-        } catch (error) {
-          console.error("Error fetching reminders:", error);
-          return [];
-        }
-      }
-
-    async addReminder(title: string) {
-        // const response= await this.http.post('/todos', {title});
-        const response= await this.http.post('', {title});
-        return response.data;
+    if (error) {
+      console.error('Error fetching reminders:', error)
+      return []
     }
 
-    // async removeReminder(id: number) {
-        async removeReminder(id: string) {
-        // const response = await this.http.delete('/todos/'+ id);
-        const response = await this.http.delete('/'+ id);
-        return response.data;
+    return data as Reminder[]
+  }
+
+  async addReminder(title: string): Promise<Reminder | null> {
+    const { data, error } = await supabase
+      .from('reminders')
+      .insert([{ title }])
+      .select()
+      .single()
+
+    if (error) {
+      console.error('Error adding reminder:', error)
+      return null
     }
+
+    return data as Reminder
+  }
+
+  async removeReminder(id: string): Promise<void> {
+    const { error } = await supabase
+      .from('reminders')
+      .delete()
+      .eq('id', id)
+
+    if (error) {
+      console.error('Error deleting reminder:', error)
+    }
+  }
 }
 
-export default new ReminderService();
+export default new ReminderService()
