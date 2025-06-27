@@ -41,8 +41,7 @@ RESTful API Integration
 Modular Component Design
 
 📁 Folder Structure Overview
-Copy
-Edit
+
 reminders-app/
 ├── src/
 │   ├── components/
@@ -57,6 +56,7 @@ reminders-app/
 ├── public/
 ├── package.json
 ├── README.md
+
 
 
 🚀 Getting Started
